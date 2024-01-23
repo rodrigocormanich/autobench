@@ -1,0 +1,12 @@
+
+EPR-II scrf=(iefpcm,solvent=chloroform)
+EPR-III scrf=(iefpcm,solvent=chloroform)
+
+
+
+
+
+
+
+
+

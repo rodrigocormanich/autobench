@@ -1,0 +1,9 @@
+pcJ-0 CPCM(chloroform)
+pcJ-1 CPCM(chloroform)
+pcJ-2 CPCM(chloroform)
+pcJ-3 CPCM(chloroform)
+aug-pcJ-0 CPCM(chloroform)
+aug-pcJ-1 CPCM(chloroform)
+EPR-II CPCM(chloroform)
+EPR-III CPCM(chloroform)
+

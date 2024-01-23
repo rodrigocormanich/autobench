@@ -1,0 +1,93 @@
+[SOFTWARE PATHS]
+queue_software = SGE
+crest_bin = /share/apps/crest-2.12/crest
+gaussian_bin = /share/apps/g16/g16
+orca_bin = /share/apps/orca_5_0_3_linux_x86-64_openmpi411/orca
+
+[QUEUE SWITCHES]
+part1_submitqueue = on
+part2_submitqueue = on
+part3_submitqueue = on
+part4_reference_queue = on
+part4_submitqueue = on
+
+[QUEUE SCRIPTS]
+submit_calculation = qsub -sync y
+prep_crest_part1 = CRESTprep_n1.csh
+prep_gauss_part2 = G16prep_n1.csh
+prep_orca_part2 = ORCA503prep_n1.csh
+prep_gauss_part3 = G16prep_n1.csh
+prep_orca_part3 = ORCA503prep_n1.csh
+prep_gauss_part4 = G16prep_n1.csh
+prep_orca_part4 = ORCA503prep_n1.csh
+
+[MOLECULE SPECIFICATIONS]
+charge = 0
+multiplicity = 1
+
+[NEGATIVE FREQUENCY ELIMINATION MODULE]
+negative_freq_elim=on
+
+[SIMILAR CONFORMER ELIMINATION MODULE]
+part2_elimination_similar_gaussian = on
+part2_elimination_similar_orca = on
+part3_elimination_similar_gaussian = on
+part3_elimination_similar_orca = on
+
+[PART 1-4 SWITCHES]
+part1_switch = on
+part2_switch_gaussian = on
+part2_gpu = on
+part2_switch_orca = on
+part3_switch_gaussian = on
+part3_gpu = on
+part3_switch_orca = on
+part4_switch_reference_gaussian = on
+part4_reference_gpu = on
+part4_switch_reference_orca = on
+part4_switch_gaussian = on
+part4_switch_orca = on
+part4_complement_gaussian = on
+part4_complement_orca = on
+part4_gpu = on
+
+[COMPUTATIONAL RESOURCES]
+part2_nproc_gaussian = 40
+part2_mem_gaussian = 96GB
+part2_ngpus = 1
+part2_nproc_orca = 40
+part2_mem_orca = 2400
+part3_nproc_gaussian = 40
+part3_mem_gaussian = 96GB
+part3_ngpus = 1
+part3_nproc_orca = 40
+part3_mem_orca = 2400
+part4_procs_reference_gaussian = 40
+part4_mem_reference_gaussian = 96GB
+part4_reference_ngpus = 1
+part4_procs_reference_orca = 10
+part4_mem_reference_orca = 9600
+part4_nproc_gaussian = 40
+part4_mem_gaussian = 96GB
+part4_ngpus = 1
+part4_nproc_orca = 40
+part4_mem_orca = 2400
+
+[PART 1-4 KEYWORDS]
+
+# PART 1 
+crest_keywords = --len 10 --T 40 --hflip --v4 --ewin 100 --alpb chloroform --chrg 0 --uhf 1
+
+# PART 2
+part2_level_gaussian = # PM6 scrf=(iefpcm,solvent=chloroform)
+part2_keywords_gaussian = opt freq=noraman
+part2_keywords_orca = ! XTB2 OPT NUMFREQ ALPB(CHCl3)
+
+# PART 3
+part3_keywords_gaussian = # opt freq=noraman M062X 6-31+G(d,p) scrf=(iefpcm,solvent=chloroform)
+part3_keywords_orca = ! opt freq M062X 6-31+G(d,p) CPCM(chloroform)
+
+# PART 4 - REFERENCE
+part4_reference_keywords_orca = ! extrapolateEP3(CC) tightSCF tightPNO CPCM(chloroform)
+part4_reference_keywords_gaussian = # CCSD(T) aug-cc-pvtz scrf=(iefpcm,solvent=chloroform)
+

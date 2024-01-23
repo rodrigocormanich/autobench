@@ -1,0 +1,10 @@
+B3LYP
+B3LYP EmpiricalDispersion=GD3BJ
+BHandH
+M06L
+PBE1PBE
+PBE1PBE EmpiricalDispersion=GD3BJ
+M062X
+CAM-B3LYP
+CAM-B3LYP EmpiricalDispersion=GD3BJ
+
