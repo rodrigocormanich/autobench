@@ -6,5 +6,5 @@ The software is designed to facilitate the automatic benchmarking of conformer e
 ****
 
 # Autobench User's Manual:
-The Users Manual can be downloaded in [cormanich.iqm.unicamp.br]
+The Users Manual can be downloaded in https://cormanich.iqm.unicamp.br
 ****
